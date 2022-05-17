@@ -30,3 +30,35 @@ print(env.step(1))
 random_action= env.action_space.sample()
 next_state, reward, done, info= env.step(random_action)
 
+
+#GENERATING AN EPISODE
+print('Starts iteration')
+env.reset()
+num_timesteps= 20
+
+for t in range(num_timesteps):
+	random_action=env.action_space.sample()
+	next_step, reward, done, info= env.step(random_action)
+	env.render()
+	if done:
+		break
+
+#generating a sequence of EPISODES
+
+num_episodes= 10
+num_timesteps=20
+
+for i in range(num_episodes):
+
+	state = env.reset()
+	print('Time Step 0:')
+	env.render()
+
+	for t in range(num_timesteps):
+		random_action= env.action_space.sample()
+		new_state, reward, done, info= env.step(random_action)
+		print('TimeStep {} : ', format(t+1) )
+
+		env.render()
+		if done:
+			break 
