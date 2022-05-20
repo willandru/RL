@@ -1,6 +1,6 @@
 import gym 
 
-env = gym.make("FrozenLake-v0")
+env = gym.make("FrozenLake-v1")
 
 env.render()
 
